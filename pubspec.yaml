@@ -5,7 +5,9 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.5 <3.0.0'  # dart
+  # A single Dart SDK can simultaneously support multiple versions of the Dart language. 
+  # The compiler determines what version the code is targeting, and it interprets the code according to that version.
+  sdk: '>=2.18.5 <3.0.0' # dart
 
 dependencies:
   flutter:
