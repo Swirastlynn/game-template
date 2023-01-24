@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
-          surfaceTintColor:
-              Colors.white, // elevation causes an unexpectable tint - disable it here by making tint white
+          // elevation causes an unexpectable tint - disable it here by making tint white
+          surfaceTintColor: Colors.white,
         ),
         textTheme: _buildTextTheme(),
       ),
