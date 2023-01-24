@@ -1,0 +1,1 @@
+{"bricks":{"flavors":{"git":{"url":"https://github.com/felangel/mason.git","path":"bricks/flavors","ref":"ebbedfbe8cc31552c2e4a1eb2ba4359bdc595830"}},"hello":"0.1.0+1","widget":{"git":{"url":"https://github.com/felangel/mason.git","path":"bricks/widget","ref":"ebbedfbe8cc31552c2e4a1eb2ba4359bdc595830"}}}}

@@ -15,6 +15,7 @@ analyzer:
     # - custom_lint   # I can create my own custom lint rules with this tool.
   exclude:
     - "build/**"
+    - "bricks/**"
   language:
     strict-raw-types: true # https://dart.dev/guides/language/sound-problems#missing-type-arguments
 

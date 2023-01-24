@@ -45,3 +45,6 @@ app.*.map.json
 
 # fvm
 .fvm/flutter_sdk
+
+# mason
+.mason/**
