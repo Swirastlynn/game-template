@@ -18,6 +18,8 @@ analyzer:
     - "bricks/**"
   language:
     strict-raw-types: true # https://dart.dev/guides/language/sound-problems#missing-type-arguments
+  errors:
+    todo: ignore
 
   # Severity of the rules can be changed here (uncomment lines below):
   # errors:
@@ -47,7 +49,6 @@ dart_code_metrics:
   metrics-exclude:
     - test/**
   rules:
-    - newline-before-return
     - no-boolean-literal-compare
     - no-empty-block
     - prefer-trailing-comma
@@ -75,6 +76,7 @@ dart_code_metrics:
           - private-methods
   rules-exclude:
     - test/**
+    - bricks/**
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
