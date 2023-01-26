@@ -10,6 +10,7 @@ import 'package:game_template/core/stores/user_store.dart';
 import 'package:game_template/navigation/app_navigator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// flag modified by unit tests so that app's code can adapt to unit tests
 /// (i.e: disable animations in progress bars etc.)
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       navigatorKey: AppNavigator.navigatorKey,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
@@ -53,13 +56,14 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: _buildTextTheme(),
       ),
-      home: LoginPage(// todo get_it
+      home: LoginPage(
+        // todo get_it
         presenter: LoginPresenter(
           LoginPresentationModel.initial(),
           LoginNavigator(AppNavigator()),
           LoginUseCase(UserStore(const User.anonymous())),
         ),
-      ), 
+      ),
     );
   }
 }

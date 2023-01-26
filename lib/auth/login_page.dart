@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:game_template/auth/presentation/login_presentation_model.dart';
 import 'package:game_template/auth/presentation/login_presenter.dart';
 import 'package:game_template/core/utils/mvp_extensions.dart';
+import 'package:game_template/localization/app_localizations_utils.dart';
 
 class LoginPage extends StatefulWidget with HasPresenter<LoginPresenter> {
   const LoginPage({
@@ -26,7 +27,7 @@ class _LoginPageState extends State<LoginPage> with PresenterStateMixin<LoginVie
             children: [
               TextField(
                 decoration: InputDecoration(
-                  hintText: "usernameHint", //appLocalizations.usernameHint,
+                  hintText: appLocalizations.usernameHint,
                 ),
                 onChanged: (text) => presenter.onUsernameChanged(text),
               ),
@@ -34,7 +35,7 @@ class _LoginPageState extends State<LoginPage> with PresenterStateMixin<LoginVie
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: "passwordHint", // appLocalizations.passwordHint,
+                  hintText: appLocalizations.passwordHint,
                 ),
                 onChanged: (text) => presenter.onPasswordChanged(text),
               ),
@@ -44,7 +45,7 @@ class _LoginPageState extends State<LoginPage> with PresenterStateMixin<LoginVie
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
                         onPressed: state.isLoginEnabled ? () => presenter.login() : null,
-                        child: Text("logInAction"), //appLocalizations.logInAction),
+                        child: Text(appLocalizations.logInAction),
                       ),
               ),
             ],

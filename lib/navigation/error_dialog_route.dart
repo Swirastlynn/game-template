@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_template/core/domain/displayable_failure.dart';
+import 'package:game_template/localization/app_localizations_utils.dart';
 import 'package:game_template/navigation/app_navigator.dart';
 
 mixin ErrorDialogRoute {
@@ -28,7 +29,7 @@ class ErrorDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text("okAction"), //appLocalizations.okAction),
+          child: Text(appLocalizations.okAction),
         ),
       ],
     );

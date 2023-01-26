@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:game_template/auth/domain/log_in_use_case.dart';
 import 'package:game_template/auth/presentation/login_navigator.dart';
 import 'package:game_template/auth/presentation/login_presentation_model.dart';
+import 'package:game_template/localization/app_localizations_utils.dart';
 
 class LoginPresenter extends Cubit<LoginViewModel> {
   LoginPresenter(
@@ -34,8 +35,10 @@ class LoginPresenter extends Cubit<LoginViewModel> {
       },
       onSuccess: (user) {
         emit(_model.copyWith(isPending: false, loginResult: user));
-        // todo localization
-        navigator.showAlert(title: "success", message: "you are logged in!");
+        navigator.showAlert(
+          title: appLocalizations.commonSuccessTitle,
+          message: appLocalizations.commonSuccessMessage,
+        );
       },
     );
   }

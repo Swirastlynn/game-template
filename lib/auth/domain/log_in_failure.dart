@@ -1,4 +1,5 @@
 import 'package:game_template/core/domain/displayable_failure.dart';
+import 'package:game_template/localization/app_localizations_utils.dart';
 
 class LogInFailure implements HasDisplayableFailure {
   const LogInFailure.unknown([this.details]) : type = LogInFailureType.unknown;
@@ -15,8 +16,8 @@ class LogInFailure implements HasDisplayableFailure {
         return DisplayableFailure.commonError();
       case LogInFailureType.missingCredentials:
         return DisplayableFailure(
-          title: "missingCredsTitle", //appLocalizations.missingCredsTitle,
-          message: "missingCredsMessage", //appLocalizations.missingCredsMessage,
+          title: appLocalizations.missingCredsTitle,
+          message: appLocalizations.missingCredsMessage,
         );
     }
   }

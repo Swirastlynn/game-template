@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_template/localization/app_localizations_utils.dart';
 import 'package:game_template/navigation/app_navigator.dart';
 
 mixin AlertDialogRoute {
@@ -33,7 +34,7 @@ class _AlertDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text("okAction"),// appLocalizations.okAction),
+          child: Text(appLocalizations.okAction),
         ),
       ],
     );

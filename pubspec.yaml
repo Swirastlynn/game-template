@@ -20,6 +20,11 @@ dependencies:
   bloc: 8.0.3
   flutter_bloc: 8.0.1
 
+  # localization
+  flutter_localizations:
+    sdk: flutter
+  intl: 0.17.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -34,3 +39,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # localization
+  generate: true
