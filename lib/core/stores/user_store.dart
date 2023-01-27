@@ -2,8 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:game_template/core/domain/user.dart';
 
 class UserStore extends Cubit<User> {
-  // todo guarantee singleton in DI
-  UserStore(User user) : super(user);
+  UserStore({User? user}) : super(user ?? const User.anonymous());
 
   User get user => state;
 

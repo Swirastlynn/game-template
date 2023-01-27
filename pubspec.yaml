@@ -25,6 +25,9 @@ dependencies:
     sdk: flutter
   intl: 0.17.0
 
+  # dependency injection
+  get_it: ^7.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
