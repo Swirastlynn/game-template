@@ -4,23 +4,23 @@ import 'package:game_template/core/domain/user.dart';
 class LoginPresentationModel implements LoginViewModel {
   /// Creates the initial state
   LoginPresentationModel.initial()
-      : user = const User.anonymous(),
+      : username = '',
+        password = '',
         isPending = false,
-        username = '',
-        password = '';
+        user = const User.anonymous();
 
   /// Used for the copyWith method
   LoginPresentationModel._({
-    required this.user,
-    required this.isPending,
     required this.username,
     required this.password,
+    required this.isPending,
+    required this.user,
   });
 
-  final User user;
-  final bool isPending;
   final String username;
   final String password;
+  final bool isPending;
+  final User user; // result
 
   @override
   bool get isLoading => isPending;
@@ -29,16 +29,16 @@ class LoginPresentationModel implements LoginViewModel {
   bool get isLoginEnabled => username.isNotEmpty && password.isNotEmpty;
 
   LoginPresentationModel copyWith({
-    User? loginResult,
-    bool? isPending,
     String? username,
     String? password,
+    bool? isPending,
+    User? user,
   }) {
     return LoginPresentationModel._(
-      user: loginResult ?? this.user,
-      isPending: isPending ?? this.isPending,
       username: username ?? this.username,
       password: password ?? this.password,
+      isPending: isPending ?? this.isPending,
+      user: user ?? this.user,
     );
   }
 }

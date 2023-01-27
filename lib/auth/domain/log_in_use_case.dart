@@ -22,7 +22,9 @@ class LoginUseCase {
     }
 
     if (!isUnitTests) {
-      await Future.delayed(Duration(milliseconds: 500 + Random().nextInt(1000)));
+      await Future.delayed(
+        Duration(milliseconds: 500 + Random().nextInt(1000)),
+      );
     }
 
     if (username == 'abcd' && password == 'pass123') {

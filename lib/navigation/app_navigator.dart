@@ -12,6 +12,7 @@ class AppNavigator {
   }
 }
 
+//ignore: unused-code
 Route<T> materialRoute<T>(
   Widget page, {
   bool fullScreenDialog = false,
@@ -24,4 +25,6 @@ Route<T> materialRoute<T>(
     );
 
 NavigatorState _navigator(BuildContext? context, {bool useRoot = false}) =>
-    (useRoot || context == null) ? AppNavigator.navigatorKey.currentState! : Navigator.of(context);
+    (useRoot || context == null)
+        ? AppNavigator.navigatorKey.currentState!
+        : Navigator.of(context);

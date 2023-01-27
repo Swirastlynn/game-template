@@ -34,7 +34,7 @@ class LoginPresenter extends Cubit<LoginViewModel> {
         navigator.showError(fail.displayableFailure());
       },
       onSuccess: (user) {
-        emit(_model.copyWith(isPending: false, loginResult: user));
+        emit(_model.copyWith(isPending: false, user: user));
         navigator.showAlert(
           title: appLocalizations.commonSuccessTitle,
           message: appLocalizations.commonSuccessMessage,
