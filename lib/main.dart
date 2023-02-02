@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'auth/login_page.dart';
-import 'auth/presentation/login_presenter.dart';
 import 'core/dependency_injection/app_component.dart';
 import 'navigation/app_navigator.dart';
 import 'package:google_fonts/google_fonts.dart';

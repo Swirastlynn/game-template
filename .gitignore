@@ -48,3 +48,6 @@ app.*.map.json
 
 # mason
 .mason/**
+
+# test coverage
+coverage/**

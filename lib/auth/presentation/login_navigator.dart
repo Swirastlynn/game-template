@@ -7,14 +7,3 @@ class LoginNavigator with AlertDialogRoute, ErrorDialogRoute {
 
   final AppNavigator appNavigator;
 }
-
-//ignore: unused-code
-mixin LoginRoute {
-  // Future<void> openLogin() async {
-  //   return appNavigator.push(
-  //     materialRoute(getIt<LoginPage>()), // todo
-  //   );
-  // }
-
-  AppNavigator get appNavigator;
-}
