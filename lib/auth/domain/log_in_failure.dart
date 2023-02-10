@@ -4,9 +4,11 @@ import 'package:game_template/localization/app_localizations_utils.dart';
 class LogInFailure implements HasDisplayableFailure {
   const LogInFailure.unknown([this.details]) : type = LogInFailureType.unknown;
 
-  const LogInFailure.missingCredentials([this.details]) : type = LogInFailureType.missingCredentials;
+  const LogInFailure.missingCredentials([this.details])
+      : type = LogInFailureType.missingCredentials;
 
-  const LogInFailure.incorrectCredentials([this.details]) : type = LogInFailureType.incorrectCredentials;
+  const LogInFailure.incorrectCredentials([this.details])
+      : type = LogInFailureType.incorrectCredentials;
 
   final LogInFailureType type;
   final String? details;
