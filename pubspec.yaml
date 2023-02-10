@@ -15,6 +15,7 @@ dependencies:
   google_fonts: ^3.0.1
   device_preview: ^1.1.0
   equatable: ^2.0.5
+  either_dart: ^0.3.0
 
   # architecture
   bloc: 8.0.3

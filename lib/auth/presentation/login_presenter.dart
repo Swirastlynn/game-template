@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:either_dart/either.dart';
 import 'package:game_template/auth/domain/log_in_use_case.dart';
 import 'package:game_template/auth/presentation/login_navigator.dart';
 import 'package:game_template/auth/presentation/login_presentation_model.dart';
@@ -25,16 +26,19 @@ class LoginPresenter extends Cubit<LoginViewModel> {
   }
 
   Future<void> login() async {
-    emit(_model.copyWith(isPending: true));
-    await useCase.execute(
+    emit(_model.copyWith(isPending: true)); // todo emit can be called in one line, not a few
+    await useCase
+        .execute(
       username: _model.username,
       password: _model.password,
-      onFailure: (fail) {
+    )
+        .fold( // todo fix formatting
+      (fail) {
         emit(_model.copyWith(isPending: false));
         navigator.showError(fail.displayableFailure());
       },
-      onSuccess: (user) {
-        emit(_model.copyWith(isPending: false, user: user));
+      (success) {
+        emit(_model.copyWith(isPending: false, user: success));
         navigator.showAlert(
           title: appLocalizations.commonSuccessTitle,
           message: appLocalizations.commonSuccessMessage,

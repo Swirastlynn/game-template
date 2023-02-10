@@ -4,6 +4,7 @@ import 'package:game_template/auth/presentation/login_presenter.dart';
 import 'package:game_template/core/utils/mvp_extensions.dart';
 import 'package:game_template/localization/app_localizations_utils.dart';
 
+// todo test this widget
 class LoginPage extends StatefulWidget with HasPresenter<LoginPresenter> {
   const LoginPage({
     required this.presenter,

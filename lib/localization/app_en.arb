@@ -8,6 +8,8 @@
     "commonErrorMessage": "Something went wrong, please try again",
     "missingCredsTitle": "Missing Credentials",
     "missingCredsMessage": "Please provide both username and password!",
+    "incorrectCredsTitle": "Incorrect Credentials",
+    "incorrectCredsMessage": "Please provide correct credentials!",
     "usernameHint": "username",
     "passwordHint": "password",
     "logInAction": "Log in"

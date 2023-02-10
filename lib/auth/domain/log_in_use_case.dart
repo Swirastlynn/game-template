@@ -1,8 +1,10 @@
 import 'dart:math';
 
+import 'package:either_dart/either.dart';
 import 'package:game_template/auth/domain/log_in_failure.dart';
 import 'package:game_template/core/domain/user.dart';
 import 'package:game_template/core/stores/user_store.dart';
+import 'package:game_template/core/utils/either_extensions.dart';
 import 'package:game_template/main.dart';
 
 class LoginUseCase {
@@ -10,15 +12,12 @@ class LoginUseCase {
 
   final UserStore _userStore;
 
-  Future<User> execute({
+  Future<Either<LogInFailure, User>> execute({
     required String username,
     required String password,
-    required void Function(LogInFailure fail) onFailure,
-    required void Function(User user) onSuccess,
   }) async {
     if (username.isEmpty || password.isEmpty) {
-      onFailure(const LogInFailure.missingCredentials());
-      return const User.anonymous();
+      return failure(const LogInFailure.missingCredentials());
     }
 
     if (!isUnitTests) {
@@ -33,10 +32,8 @@ class LoginUseCase {
         username: username,
       );
       _userStore.user = user;
-      onSuccess(user);
-      return user;
+      return success(user);
     }
-    onFailure(const LogInFailure.unknown());
-    return const User.anonymous();
+    return failure(const LogInFailure.incorrectCredentials());
   }
 }
