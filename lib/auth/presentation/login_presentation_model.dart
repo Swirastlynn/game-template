@@ -1,29 +1,27 @@
 import 'package:game_template/core/domain/user.dart';
+import 'package:game_template/core/presentation/presentation_model.dart';
 
 /// Model used by presenter, contains fields that are relevant to presenters and implements ViewModel to expose data to view (page)
 class LoginPresentationModel implements LoginViewModel {
-  /// Creates the initial state
+  
   LoginPresentationModel.initial()
       : username = '',
         password = '',
-        isPending = false,
-        user = const User.anonymous();
+        result = const Result.empty();
 
   /// Used for the copyWith method
   LoginPresentationModel._({
     required this.username,
     required this.password,
-    required this.isPending,
-    required this.user,
+    required this.result,
   });
 
   final String username;
   final String password;
-  final bool isPending;
-  final User user; // result
+  final Result<User> result;
 
   @override
-  bool get isLoading => isPending;
+  bool get isLoading => result.isPending();
 
   @override
   bool get isLoginEnabled => username.isNotEmpty && password.isNotEmpty;
@@ -31,14 +29,12 @@ class LoginPresentationModel implements LoginViewModel {
   LoginPresentationModel copyWith({
     String? username,
     String? password,
-    bool? isPending,
-    User? user,
+    Result<User>? result,
   }) {
     return LoginPresentationModel._(
       username: username ?? this.username,
       password: password ?? this.password,
-      isPending: isPending ?? this.isPending,
-      user: user ?? this.user,
+      result: result ?? this.result,
     );
   }
 }
