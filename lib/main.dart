@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'auth/login_page.dart';
+import 'package:game_template/auth/login_page_connector.dart';
 import 'core/dependency_injection/app_component.dart';
 import 'navigation/app_navigator.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: _buildTextTheme(),
       ),
-      home: serviceLocator<LoginPage>(),
+      home: serviceLocator<LoginPageConnector>(),
     );
   }
 }
@@ -61,19 +61,18 @@ class MyApp extends StatelessWidget {
 TextTheme _buildTextTheme() {
   return GoogleFonts.dmSansTextTheme(
     const TextTheme(
-      headline1: TextStyle(
+      displayLarge: TextStyle(
         fontSize: 72.0,
         fontWeight: FontWeight.bold,
       ),
-      headline6: TextStyle(
-        // used in appBar, source: https://api.flutter.dev/flutter/material/TextTheme/headline6.html
+      titleLarge: TextStyle(
         fontSize: 24.0,
         fontWeight: FontWeight.bold,
       ),
-      bodyText1: TextStyle(
+      bodyLarge: TextStyle(
         fontSize: 16.0,
       ),
-      bodyText2: TextStyle(
+      bodyMedium: TextStyle(
         fontSize: 14.0,
       ),
     ),

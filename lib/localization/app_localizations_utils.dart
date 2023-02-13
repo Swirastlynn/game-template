@@ -10,7 +10,6 @@ AppLocalizations get appLocalizations {
   return _appLocalizations!;
 }
 
-//ignore: unused-code
 /// Useful method for tests to override app localizations
 void overrideAppLocalizations(AppLocalizations localizations) {
   _appLocalizations = localizations;

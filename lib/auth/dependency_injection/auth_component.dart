@@ -1,5 +1,5 @@
 import 'package:game_template/auth/domain/log_in_use_case.dart';
-import 'package:game_template/auth/login_page.dart';
+import 'package:game_template/auth/login_page_connector.dart';
 import 'package:game_template/auth/presentation/login_navigator.dart';
 import 'package:game_template/auth/presentation/login_presentation_model.dart';
 import 'package:game_template/auth/presentation/login_presenter.dart';
@@ -33,8 +33,8 @@ void _configureMvp() {
         serviceLocator(),
       ),
     )
-    ..registerFactory<LoginPage>(
-      () => LoginPage(
+    ..registerFactory<LoginPageConnector>(
+      () => LoginPageConnector(
         presenter: serviceLocator(),
       ),
     );

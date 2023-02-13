@@ -1,59 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:game_template/auth/presentation/login_presentation_model.dart';
-import 'package:game_template/auth/presentation/login_presenter.dart';
-import 'package:game_template/core/utils/mvp_extensions.dart';
 import 'package:game_template/localization/app_localizations_utils.dart';
 
-// todo test this widget
-class LoginPage extends StatefulWidget with HasPresenter<LoginPresenter> {
+class LoginPage extends StatelessWidget {
   const LoginPage({
-    required this.presenter,
+    required this.fillInUsername,
+    required this.fillInPassword,
+    required this.login,
+    required this.isLoading,
+    required this.areFieldsValidated,
     super.key,
   });
 
-  @override
-  final LoginPresenter presenter;
+  final void Function(String username) fillInUsername;
+  final void Function(String password) fillInPassword;
+  final void Function() login;
+  final bool isLoading;
+  final bool areFieldsValidated;
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage>
-    with PresenterStateMixin<LoginViewModel, LoginPresenter, LoginPage> {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  hintText: appLocalizations.usernameHint,
-                ),
-                onChanged: (text) => presenter.onUsernameChanged(text),
-              ),
-              const SizedBox(height: 8),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: appLocalizations.passwordHint,
-                ),
-                onChanged: (text) => presenter.onPasswordChanged(text),
-              ),
-              const SizedBox(height: 16),
-              stateObserver(
-                builder: (context, state) => (state.isLoading)
-                    ? const CircularProgressIndicator()
-                    : ElevatedButton(
-                        onPressed: state.isLoginEnabled
-                            ? () => presenter.login()
-                            : null,
-                        child: Text(appLocalizations.logInAction),
-                      ),
-              ),
-            ],
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              hintText: appLocalizations.usernameHint,
+            ),
+            onChanged: (text) => fillInUsername(text),
           ),
-        ),
-      );
+          const SizedBox(height: 8),
+          TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+              hintText: appLocalizations.passwordHint,
+            ),
+            onChanged: (text) => fillInPassword(text),
+          ),
+          const SizedBox(height: 16),
+          (isLoading)
+              ? const CircularProgressIndicator()
+              : ElevatedButton(
+                  key: const Key("logIn"),
+                  onPressed: areFieldsValidated ? () => login() : null,
+                  child: Text(appLocalizations.logInAction),
+                ),
+        ],
+      ),
+    );
+  }
 }

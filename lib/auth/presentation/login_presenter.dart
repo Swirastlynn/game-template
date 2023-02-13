@@ -18,11 +18,11 @@ class LoginPresenter extends Cubit<LoginViewModel> {
 
   LoginPresentationModel get _model => state as LoginPresentationModel;
 
-  void onUsernameChanged(String username) {
+  void fillInUsername(String username) {
     emit(_model.copyWith(username: username));
   }
 
-  void onPasswordChanged(String password) {
+  void fillInPassword(String password) {
     emit(_model.copyWith(password: password));
   }
 
