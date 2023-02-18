@@ -3,26 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:game_template/auth/login_page.dart';
 import 'package:game_template/auth/presentation/login_presentation_model.dart';
 import 'package:game_template/auth/presentation/login_presenter.dart';
+import 'package:game_template/core/utils/mvp_extensions.dart';
 
-// todo upgrade to BlocProvider and observe how it changes the code and tests
-class LoginPageConnector extends StatefulWidget {
-  //with HasPresenter<LoginPresenter> {
+class LoginPageConnector extends StatefulWidget with HasPresenter<LoginPresenter> {
   const LoginPageConnector({super.key, required this.presenter});
 
-  // @override
+  @override
   final LoginPresenter presenter;
 
   @override
   State<LoginPageConnector> createState() => _LoginPageConnectorState();
 }
 
-class _LoginPageConnectorState extends State<LoginPageConnector> {
-  @override
-  void dispose() {
-    widget.presenter.close();
-    super.dispose();
-  }
-
+class _LoginPageConnectorState extends State<LoginPageConnector>
+    with PresenterDisposalMixin<LoginViewModel, LoginPresenter, LoginPageConnector> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginPresenter, LoginViewModel>(

@@ -24,7 +24,7 @@ void _configureMvp() {
       () => LoginNavigator(serviceLocator()),
     )
     ..registerFactory<LoginPresentationModel>(
-      () => LoginPresentationModel.initial(),
+      () => const LoginPresentationModel.initial(),
     )
     ..registerFactory<LoginPresenter>(
       () => LoginPresenter(

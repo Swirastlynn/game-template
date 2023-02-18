@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:game_template/auth/domain/log_in_failure.dart';
 import 'package:game_template/auth/presentation/login_presentation_model.dart';
@@ -23,7 +24,7 @@ void main() {
     Mocks.init();
     overrideAppLocalizations(AppLocalizationsEn());
 
-    model = LoginPresentationModel.initial();
+    model = const LoginPresentationModel.initial();
     navigator = MockLoginNavigator();
     useCase = MockLogInUseCase();
     presenter = LoginPresenter(
@@ -79,6 +80,22 @@ void main() {
     },
   );
 
+  blocTest<LoginPresenter, LoginViewModel>(
+    'emits state with username: "asdf" when fillInUsername() is called.',
+    build: () => presenter,
+    act: (cubit) => presenter.fillInUsername("asdf"),
+    expect: () => <LoginPresentationModel>[
+      model.copyWith(username: "asdf"),
+    ],
+  );
 
-  // todo add fillInPassword/Username
+  blocTest<LoginPresenter, LoginViewModel>(
+    'emits state with password: "pass" when fillInPassword() is called.',
+    build: () => presenter,
+    act: (cubit) => presenter.fillInPassword("pass"),
+    expect: () => <LoginPresentationModel>[
+      model.copyWith(password: "pass"),
+    ],
+  );
+
 }
