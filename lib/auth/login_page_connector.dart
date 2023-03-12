@@ -5,7 +5,8 @@ import 'package:game_template/auth/presentation/login_presentation_model.dart';
 import 'package:game_template/auth/presentation/login_presenter.dart';
 import 'package:game_template/core/utils/mvp_extensions.dart';
 
-class LoginPageConnector extends StatefulWidget with HasPresenter<LoginPresenter> {
+class LoginPageConnector extends StatefulWidget
+    with HasPresenter<LoginPresenter> {
   const LoginPageConnector({super.key, required this.presenter});
 
   @override
@@ -16,7 +17,9 @@ class LoginPageConnector extends StatefulWidget with HasPresenter<LoginPresenter
 }
 
 class _LoginPageConnectorState extends State<LoginPageConnector>
-    with PresenterDisposalMixin<LoginViewModel, LoginPresenter, LoginPageConnector> {
+    with
+        PresenterDisposalMixin<LoginViewModel, LoginPresenter,
+            LoginPageConnector> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginPresenter, LoginViewModel>(

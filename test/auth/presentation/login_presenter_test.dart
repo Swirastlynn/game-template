@@ -97,5 +97,4 @@ void main() {
       model.copyWith(password: "pass"),
     ],
   );
-
 }
